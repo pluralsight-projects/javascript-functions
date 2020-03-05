@@ -81,9 +81,15 @@ const calculateNext = (state) => {
   return nxtState;
 };
 
-const iterate = (state, iterations) => {};
+const iterate = (state, iterations) => {
+  const result = [state];
+  for (let i=1; i<= iterations; i++ ){
+    result.push(calculateNext(result[result.length-1]));
+  }
+  return result;
+};
 
-const main = (pattern, iterations) => {};
+const main = (pattern, iterations) => {}
 
 const startPatterns = {
     rpentomino: [
