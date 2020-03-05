@@ -60,7 +60,7 @@ const getNeighborsOf = ([x, y]) => {
 return result;
 }
 
-const getLivingNeighbors = (cell, state) => {};
+const getLivingNeighbors = (cell, state) => getNeighborsOf(cell).filter( X => contains.bind(state)(X)) ;
 
 const willBeAlive = (cell, state) => {};
 
