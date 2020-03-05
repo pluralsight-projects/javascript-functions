@@ -68,7 +68,18 @@ const willBeAlive = (cell, state) => {
   return (livingNbors===3 || (contains.call(state, cell) && livingNbors===2));
 }
 
-const calculateNext = (state) => {};
+const calculateNext = (state) => {
+  let nxtState = [];
+  const {topRight, bottomLeft} = corners(state);
+
+  for (let r= bottomLeft[0]-1; r<=topRight[0]+1 ; r++){
+    for (let c=bottomLeft[1]-1; c<=topRight[1]+1;c++){
+      if (willBeAlive([r,c], state))  { nxtState.push([r,c]) }
+    }
+  }
+
+  return nxtState;
+};
 
 const iterate = (state, iterations) => {};
 
