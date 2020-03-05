@@ -36,7 +36,19 @@ const corners = (state = []) => {
 
 };
 
-const printCells = (state) => {};
+const printCells = (state) => {
+  let result="";
+  const K =corners(state);
+  for (let c=K.topRight[1]; c>=K.bottomLeft[1];c--){
+      for (let r= K.bottomLeft[0];r <= K.topRight[0];r++ ){
+          result += printCell([r,c],state ) +" "
+      }
+      result = result.replace(/.$/g,'\n')
+  }
+
+
+  return result;
+};
 
 const getNeighborsOf = ([x, y]) => {};
 
