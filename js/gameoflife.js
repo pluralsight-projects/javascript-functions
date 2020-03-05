@@ -50,7 +50,15 @@ const printCells = (state) => {
   return result;
 };
 
-const getNeighborsOf = ([x, y]) => {};
+const getNeighborsOf = ([x, y]) => {
+  let result = [];
+  for (let c=y-1;c<=y+1;c++){
+    for (let r=x-1;r<=x+1;r++){
+        if (r!=x || c!=y) result.push([r,c])
+    }
+  }
+return result;
+}
 
 const getLivingNeighbors = (cell, state) => {};
 
